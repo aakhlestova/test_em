@@ -1,0 +1,67 @@
+name: test_em
+description: A new Flutter project.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.17.1 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  mvc_pattern: ^8.11.0
+  http: ^0.13.5
+  get: ^4.6.5
+  flutter_native_splash: ^2.2.7
+  carousel_slider: ^4.1.1
+  cupertino_icons: ^1.0.2
+
+
+flutter_native_splash:
+  color: "#010035"
+  image: "assets/images/splash/splash_logo.png"
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/fonts/
+    - assets/images/
+    - assets/images/appBar/
+    - assets/images/bottomNavBar/
+    - assets/images/home/
+    - assets/images/splash/
+
+  fonts:
+    - family: Mark Pro
+      fonts:
+        - asset: assets/fonts/Mark-Pro.ttf
+          weight: 400
+        - asset: assets/fonts/Mark-Pro-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Mark-Pro-Bold.ttf
+          weight: 700
+
+
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
