@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:test_em/constants.dart';
-import 'package:test_em/views/theme/buttons.dart';
+import 'package:test_em/views/global_widgets/buttons.dart';
 import 'package:test_em/views/theme/text_styles.dart';
 
 class SelectCategoryWidget extends StatefulWidget {

@@ -8,7 +8,6 @@ class MainScreenController extends GetxController {
   var isLoading = true.obs;
 
   var mainScreen = MainScreen().obs;
-  //RxList<MainScreen> mainScreenDataList = <MainScreen>[].obs;
 
   @override
   void onInit() {
@@ -25,11 +24,6 @@ class MainScreenController extends GetxController {
         print('HomeStore count is:${mainScreen.value.homeStore?.length}');
         print('BestSeller count is:${mainScreen.value.bestSeller?.length}');
 
-        /*isLoading(true);
-      var mainScreenData = await Repository.fetchMainScreenData();
-      if (mainScreenData != null) {
-        mainScreenDataList.assignAll(mainScreenData);
-      }*/
       }
     }
     finally {

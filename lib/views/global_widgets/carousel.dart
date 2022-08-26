@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:test_em/constants.dart';
-import 'package:test_em/views/theme/buttons.dart';
+import 'package:test_em/views/global_widgets/buttons.dart';
 import 'package:test_em/views/theme/colors.dart';
 import 'package:test_em/views/theme/text_styles.dart';
 
@@ -57,21 +57,21 @@ Widget carouselPage (String title, String subtitle, String? isNew, bool? isBuy, 
             )
           ),
         ),
-        Positioned(
-          top: 14.0,
-          left: 25.0,
-          child: Container(child:
-            isNew == 'true' ?
-             Image.asset('assets/images/home/new_icon.png', height: 27.0,)
-            : null
-          ),
-        ),
         Padding(
           padding: const EdgeInsets.only(left: 25.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Padding(
+                padding: const EdgeInsets.only(bottom: 18.0),
+                child: Container(
+                  child:
+                    isNew == 'true' ?
+                    Image.asset('assets/images/home/new_icon.png', height: 27.0,)
+                        : null
+                ),
+              ),
               Text(
                 title,
                 style: carouselTitleTextStyle,

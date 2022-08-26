@@ -14,8 +14,19 @@ class SearchTextField extends StatelessWidget {
       width: MediaQuery.of(context).size.width - 144,
       child: TextField(
         decoration: InputDecoration(
+          filled: true,
+          fillColor: widgetBackgroundColor,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(50.0),
+            borderRadius: BorderRadius.circular(30.0),
+            borderSide: BorderSide(
+              color: widgetBackgroundColor,
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(30.0),
+              borderSide: BorderSide(
+                color: widgetBackgroundColor,
+              ),
           ),
           hintText: searchHintText,
           hintStyle: searchHintTextStyle,
@@ -26,7 +37,6 @@ class SearchTextField extends StatelessWidget {
               width: 16.0,
               child: Image.asset('assets/images/home/search.png', height: 16.0,)),
           ),
-          fillColor: widgetBackgroundColor,
         ),
         style: searchTextStyle,
       ),

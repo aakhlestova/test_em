@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:test_em/constants.dart';
 import 'package:test_em/models/main_screen_model.dart';
-import 'package:test_em/views/theme/carousel.dart';
+import 'package:test_em/views/global_widgets/carousel.dart';
 
 import '../../../theme/text_styles.dart';
 
@@ -44,41 +44,3 @@ class _HomeStoreWidgetState extends State<HomeStoreWidget> {
     );
   }
 }
-/*
-
-  @override
-  Widget build(BuildContext context) {
-    return CarouselSlider(
-      items: _getImageList(homeStoreDataList).map((e) => ClipRRect(
-        borderRadius: BorderRadius.circular(10),
-        child: Stack(
-          fit: StackFit.expand,
-          children: <Widget>[
-            Image.network(e,
-              width: 400,
-              height: 182,
-              fit: BoxFit.fitHeight,)
-          ],
-        ) ,
-      )).toList(),
-      options: CarouselOptions(
-        height: 182,
-        enlargeCenterPage: true,
-        enableInfiniteScroll: true,
-        autoPlay: true,
-        autoPlayInterval: Duration(seconds: 3),
-      ),
-
-    );
-  }
-}
-
-List<String> _getImageList(List<HomeStore> homeStoreDataList){
-
-  List<String> imageList = [];
-  for (int index = 0; index < homeStoreDataList.length; index++){
-    imageList.add(homeStoreDataList[index].picture.toString());
-  }
-  return imageList;
-}
-*/

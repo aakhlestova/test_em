@@ -13,6 +13,8 @@ const Color secondaryTextColor = Color(0xFFCCCCCC);
 const Color carouselTextColor = Color(0xFFFFFFFF);
 
 const Color carouselButtonColor = Color(0xFFFFFFFF);
+const Color cardShadowColor = Color(0x1FAAB6D3);
+const Color favoriteButtonColor = Color(0x26000000);
 
 
 

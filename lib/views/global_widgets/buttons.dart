@@ -102,3 +102,55 @@ class _CarouselButtonState extends State<CarouselButton> {
   }
 }
 
+/// кнопка добавления в избранное в карточке товара
+///
+class FavoritesButton extends StatefulWidget {
+  final bool isFavorites;
+  const FavoritesButton({Key? key, required this.isFavorites}) : super(key: key);
+
+  @override
+  _FavoritesButtonState createState() => _FavoritesButtonState(isFavorites);
+}
+
+class _FavoritesButtonState extends State<FavoritesButton> {
+
+  final bool isFavorites;
+  _FavoritesButtonState(this.isFavorites);
+
+  void _changeFavorites(bool isFavorites){
+    setState(() {
+      if (isFavorites == true){
+        isFavorites = false;
+      } else {
+        isFavorites = true;
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 25.0,
+      width: 25.0,
+      child: Container(
+        decoration: BoxDecoration(
+          color: widgetBackgroundColor,
+          shape: BoxShape.circle,
+          boxShadow: [
+            BoxShadow(
+                color: favoriteButtonColor,
+                blurRadius: 20.0
+            )
+          ]
+        ),
+        child: IconButton(
+            onPressed: () {
+              _changeFavorites(isFavorites);
+            },
+            icon: isFavorites
+                ? Center(child: Image.asset('assets/images/home/favorite_checked.png', height: 10.0,))
+                : Center(child: Image.asset('assets/images/home/favorite_not_checked.png', height: 10.0))),
+      ),
+    );
+  }
+}
