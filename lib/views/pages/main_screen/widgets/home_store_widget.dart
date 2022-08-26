@@ -1,7 +1,11 @@
-import 'package:carousel_slider/carousel_slider.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:test_em/constants.dart';
 import 'package:test_em/models/main_screen_model.dart';
+import 'package:test_em/views/theme/carousel.dart';
+
+import '../../../theme/text_styles.dart';
 
 class HomeStoreWidget extends StatefulWidget {
   final List<HomeStore> homeStoreDataList;
@@ -16,6 +20,31 @@ class _HomeStoreWidgetState extends State<HomeStoreWidget> {
 
   _HomeStoreWidgetState(this.homeStoreDataList);
 
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              hotSalesHeading,
+              style: headingTextStyle,
+            ),
+            TextButton(
+                onPressed: () {},
+                child: Text(
+                  seeMoreText,
+                  style: accentTextStyle,
+                ))
+          ],
+        ),
+        HotSalesCarouselWidget(homeStoreDataList: homeStoreDataList,)
+      ],
+    );
+  }
+}
+/*
 
   @override
   Widget build(BuildContext context) {
@@ -26,16 +55,18 @@ class _HomeStoreWidgetState extends State<HomeStoreWidget> {
           fit: StackFit.expand,
           children: <Widget>[
             Image.network(e,
-              width: 378,
+              width: 400,
               height: 182,
-              fit: BoxFit.cover,)
+              fit: BoxFit.fitHeight,)
           ],
         ) ,
       )).toList(),
       options: CarouselOptions(
+        height: 182,
         enlargeCenterPage: true,
-        enableInfiniteScroll: false,
+        enableInfiniteScroll: true,
         autoPlay: true,
+        autoPlayInterval: Duration(seconds: 3),
       ),
 
     );
@@ -50,3 +81,4 @@ List<String> _getImageList(List<HomeStore> homeStoreDataList){
   }
   return imageList;
 }
+*/
