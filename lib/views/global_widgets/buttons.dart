@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:test_em/constants.dart';
@@ -103,7 +101,6 @@ class _CarouselButtonState extends State<CarouselButton> {
 }
 
 /// кнопка добавления в избранное в карточке товара
-///
 class FavoritesButton extends StatefulWidget {
   final bool isFavorites;
   const FavoritesButton({Key? key, required this.isFavorites}) : super(key: key);
@@ -150,6 +147,89 @@ class _FavoritesButtonState extends State<FavoritesButton> {
             icon: isFavorites
                 ? Center(child: Image.asset('assets/images/home/favorite_checked.png', height: 10.0,))
                 : Center(child: Image.asset('assets/images/home/favorite_not_checked.png', height: 10.0))),
+      ),
+    );
+  }
+}
+
+/// кнопка добавления в избранное на странице товара
+class FavoriteProductButton extends StatefulWidget {
+
+  final bool isFavorites;
+  const FavoriteProductButton({Key? key, required this.isFavorites}) : super(key: key);
+
+  @override
+  _FavoriteProductButtonState createState() => _FavoriteProductButtonState(isFavorites);
+}
+
+class _FavoriteProductButtonState extends State<FavoriteProductButton> {
+  final bool isFavorites;
+  _FavoriteProductButtonState(this.isFavorites);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 33.0,
+      width: 37.0,
+      child: Container(
+        decoration: BoxDecoration(
+            color: blueAccentColor,
+            borderRadius: BorderRadius.circular(10.0),
+            boxShadow: [
+              BoxShadow(
+                  color: favoriteButtonColor,
+                  blurRadius: 20.0
+              )
+            ]
+        ),
+        child: IconButton(
+            onPressed: () { },
+            icon: Center(child: Image.asset('assets/images/productDetails/favorites_not_checked.png', height: 13.0,))
+      ),
+    )
+    );
+  }
+}
+
+/// кнопка добваления в корзину на странице товара
+class AddToCartButton extends StatefulWidget {
+  final int price;
+  const AddToCartButton({Key? key, required this.price}) : super(key: key);
+
+  @override
+  _AddToCartButtonState createState() => _AddToCartButtonState(price);
+}
+
+class _AddToCartButtonState extends State<AddToCartButton> {
+  final int price;
+  _AddToCartButtonState(this.price);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 54.0,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10.0),
+        color: orangeAccentColor,
+      ),
+      child: GestureDetector(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 40.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Text(
+                addToCartText,
+                style: cartButtonTextStyle,
+              ),
+              Text(
+                '\$' + price.toDouble().toString(),
+                style: cartButtonTextStyle,
+              )
+            ],
+          ),
+        ),
       ),
     );
   }

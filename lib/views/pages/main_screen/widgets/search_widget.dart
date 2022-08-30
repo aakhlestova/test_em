@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:test_em/views/global_widgets/buttons.dart';
 import 'package:test_em/views/global_widgets/text_fields.dart';
 
+/// виджет поиска (главная страница)
 class SearchWidget extends StatefulWidget {
   const SearchWidget({Key? key}) : super(key: key);
 

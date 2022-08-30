@@ -7,6 +7,8 @@ import 'package:test_em/views/global_widgets/carousel.dart';
 
 import '../../../theme/text_styles.dart';
 
+
+/// виджет с каруселью товаров категории Hot Sales (главная страница)
 class HomeStoreWidget extends StatefulWidget {
   final List<HomeStore> homeStoreDataList;
   HomeStoreWidget({Key? key, required this.homeStoreDataList}) : super(key: key);
@@ -29,7 +31,7 @@ class _HomeStoreWidgetState extends State<HomeStoreWidget> {
           children: [
             Text(
               hotSalesHeading,
-              style: headingTextStyle,
+              style: headingFirstTextStyle,
             ),
             TextButton(
                 onPressed: () {},

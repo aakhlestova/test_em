@@ -10,12 +10,16 @@ import 'package:test_em/views/pages/main_screen/widgets/select_category_widget.d
 import 'package:test_em/views/theme/colors.dart';
 import 'package:test_em/views/theme/text_styles.dart';
 
+
+/// главная страница приложения
 class MainScreenPage extends StatelessWidget {
 
   final MainScreenController mainScreenController = Get.put(
       MainScreenController());
 
   final controller = ScrollController();
+
+  MainScreenPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

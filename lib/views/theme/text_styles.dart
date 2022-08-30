@@ -29,10 +29,26 @@ const categoryAccentTextStyle = TextStyle(
 );
 
 /// стиль заголовков разделов
-const headingTextStyle = TextStyle(
+const headingFirstTextStyle = TextStyle(
   fontFamily: 'Mark Pro',
   fontSize: 25.0,
   fontWeight: FontWeight.w700,
+  color: primaryTextColor,
+  letterSpacing: -0.33,
+);
+
+const headingSecondTextStyle = TextStyle(
+  fontFamily: 'Mark Pro',
+  fontSize: 24.0,
+  fontWeight: FontWeight.w500,
+  color: primaryTextColor,
+  letterSpacing: -0.33,
+);
+
+const headingThirdTextStyle = TextStyle(
+  fontFamily: 'Mark Pro',
+  fontSize: 15.0,
+  fontWeight: FontWeight.w500,
   color: primaryTextColor,
   letterSpacing: -0.33,
 );
@@ -111,7 +127,7 @@ const carouselTitleTextStyle = TextStyle(
   fontFamily: 'Mark Pro',
   fontSize: 25.0,
   fontWeight: FontWeight.w700,
-  color: carouselTextColor,
+  color: whiteTextColor,
   letterSpacing: -0.33,
   decoration: TextDecoration.underline
 );
@@ -120,7 +136,7 @@ const carouselSubtitleTextStyle = TextStyle(
   fontFamily: 'Mark Pro',
   fontSize: 11.0,
   fontWeight: FontWeight.w400,
-  color: carouselTextColor,
+  color: whiteTextColor,
   letterSpacing: -0.33,
   decoration: TextDecoration.underline
 );
@@ -134,3 +150,60 @@ const carouselButtonTextStyle = TextStyle(
   decoration: TextDecoration.underline
 );
 
+/// стили текста для табов на странице товара Product Details
+const activeProductTabTextStyle = TextStyle(
+    fontFamily: 'Mark Pro',
+    fontSize: 20.0,
+    fontWeight: FontWeight.w700,
+    color: primaryTextColor,
+    letterSpacing: -0.33,
+);
+
+const inactiveProductTabTextStyle = TextStyle(
+  fontFamily: 'Mark Pro',
+  fontSize: 20.0,
+  fontWeight: FontWeight.w400,
+  color: inactiveProductTabTextColor,
+  letterSpacing: -0.33,
+);
+
+
+/// стили текста для информации на странице товара Product Details
+const extraInfoTextStyle = TextStyle(
+  fontFamily: 'Mark Pro',
+  fontSize: 11.0,
+  fontWeight: FontWeight.w400,
+  color: infoProductTextColor,
+);
+
+const productSelectionTextStyle = TextStyle(
+  fontFamily: 'Mark Pro',
+  fontSize: 16.0,
+  fontWeight: FontWeight.w500,
+  color: primaryTextColor,
+  letterSpacing: -0.33,
+);
+
+const cartButtonTextStyle = TextStyle(
+  fontFamily: 'Mark Pro',
+  fontSize: 20.0,
+  fontWeight: FontWeight.w700,
+  color: whiteTextColor,
+  letterSpacing: -0.33,
+);
+
+const selectedCapacityButtonTextStyle = TextStyle(
+  fontFamily: 'Mark Pro',
+  fontSize: 13.0,
+  fontWeight: FontWeight.w700,
+  color: whiteTextColor,
+  letterSpacing: -0.33,
+);
+
+const unselectedCapacityButtonTextStyle = TextStyle(
+  fontFamily: 'Mark Pro',
+  fontSize: 13.0,
+  fontWeight: FontWeight.w700,
+  color: unselectedCapacityTextColor,
+  letterSpacing: -0.33,
+);

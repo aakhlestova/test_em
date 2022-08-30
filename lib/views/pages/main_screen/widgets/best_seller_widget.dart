@@ -6,6 +6,8 @@ import 'package:test_em/models/main_screen_model.dart';
 import '../../../global_widgets/product_card_widget.dart';
 import '../../../theme/text_styles.dart';
 
+
+/// виджет с товарами бестселлерами (главная страница)
 class BestSellerWidget extends StatefulWidget {
   final List<BestSeller> bestSellerDataList;
   const BestSellerWidget({Key? key, required this.bestSellerDataList}) : super(key: key);
@@ -27,7 +29,7 @@ class _BestSellerWidgetState extends State<BestSellerWidget> {
           children: [
             Text(
               bestSellerHeading,
-              style: headingTextStyle,
+              style: headingFirstTextStyle,
             ),
             TextButton(
                 onPressed: () {},

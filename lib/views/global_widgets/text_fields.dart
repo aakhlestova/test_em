@@ -4,6 +4,7 @@ import 'package:test_em/constants.dart';
 import 'package:test_em/views/theme/colors.dart';
 import 'package:test_em/views/theme/text_styles.dart';
 
+/// текстовое поле строки поиска
 class SearchTextField extends StatelessWidget {
   const SearchTextField({Key? key}) : super(key: key);
 

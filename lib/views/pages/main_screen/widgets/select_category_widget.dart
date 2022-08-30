@@ -4,6 +4,7 @@ import 'package:test_em/constants.dart';
 import 'package:test_em/views/global_widgets/buttons.dart';
 import 'package:test_em/views/theme/text_styles.dart';
 
+/// виджет с прокручиваемым списком категорий товаров (главная страница)
 class SelectCategoryWidget extends StatefulWidget {
   const SelectCategoryWidget({Key? key}) : super(key: key);
 
@@ -29,7 +30,7 @@ class _SelectCategoryWidgetState extends State<SelectCategoryWidget> {
           children: [
             Text(
               selectCategoryHeading,
-              style: headingTextStyle,
+              style: headingFirstTextStyle,
             ),
             TextButton(
               onPressed: (){},

@@ -5,6 +5,7 @@ import 'package:test_em/views/theme/colors.dart';
 
 import '../../controllers/dashboard_controller.dart';
 
+/// виджет навигации
 class BottomNavigationBarWidget extends StatelessWidget {
   const BottomNavigationBarWidget({Key? key}) : super(key: key);
 

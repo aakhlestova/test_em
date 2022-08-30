@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:test_em/views/global_widgets/buttons.dart';
+import 'package:test_em/views/pages/product_details/product_details_page.dart';
 import 'package:test_em/views/theme/colors.dart';
 
 import '../theme/text_styles.dart';
 
-
+/// карточка товара с главной страницы, категории Best Sellers
 class ProductCardWidget extends StatefulWidget {
   final String title;
   final bool isFavorites;
@@ -97,6 +99,7 @@ class _ProductCardWidgetState extends State<ProductCardWidget> {
           ],
         ),
       ),
+      onTap: () => Get.to(() => ProductDetailsPage()),
     );
   }
 }

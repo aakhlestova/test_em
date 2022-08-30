@@ -12,3 +12,12 @@ String categoryPhonesText = 'Phones';
 String categoryComputerText = 'Computer';
 String categoryHealthText = 'Health';
 String categoryBooksText = 'Books';
+
+/// текст со страницы ProductDetails
+String productDetailsHeader = 'Product Details';
+String shopTabText = 'Shop';
+String detailsTabText = 'Details';
+String featuresTabText = 'Features';
+String selectionText = 'Select color and capacity';
+String addToCartText = 'Add to Cart';
+
