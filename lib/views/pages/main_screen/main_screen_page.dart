@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:scroll_app_bar/scroll_app_bar.dart';
 import 'package:test_em/controllers/main_screen_controller.dart';
 import 'package:test_em/views/pages/main_screen/widgets/best_seller_widget.dart';
+import 'package:test_em/views/pages/main_screen/widgets/filter_popup_widget.dart';
 import 'package:test_em/views/pages/main_screen/widgets/home_store_widget.dart';
 import 'package:test_em/views/pages/main_screen/widgets/search_widget.dart';
 import 'package:test_em/views/pages/main_screen/widgets/select_category_widget.dart';
@@ -20,6 +21,7 @@ class MainScreenPage extends StatelessWidget {
   final controller = ScrollController();
 
   MainScreenPage({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +44,7 @@ class MainScreenPage extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 11.0, right: 8.0),
                     child: Text(
                       "Zihuatanejo, Gro",
-                      style: locationTextStyle,
+                      style: appBarTextStyle,
                     ),
                   ),
                   Image.asset(
@@ -52,7 +54,7 @@ class MainScreenPage extends StatelessWidget {
             ),
             actions: [
               IconButton(
-                  onPressed: () {},
+                  onPressed: () => showFilterPopup(context),
                   icon: Image.asset(
                     'assets/images/appBar/filter.png', height: 13.0,))
             ],
@@ -101,6 +103,33 @@ class MainScreenPage extends StatelessWidget {
             ],
           ),
         )
+    );
+  }
+
+  /// функция вызова окна филтрации
+  void showFilterPopup(context) {
+    showCupertinoModalPopup(
+        context: context,
+        builder: (BuildContext builder) {
+          return CupertinoPopupSurface(
+            isSurfacePainted: true,
+            child: Container(
+                padding: EdgeInsetsDirectional.all(20),
+                color: CupertinoColors.white,
+                alignment: Alignment.center,
+                width: MediaQuery
+                    .of(context)
+                    .size
+                    .width,
+                height: MediaQuery
+                    .of(context)
+                    .copyWith()
+                    .size
+                    .height * 0.55,
+                child: FilterPopupWidget(bestSellerDataList: mainScreenController.mainScreen.value.bestSeller!,)
+            ),
+          );
+        }
     );
   }
 }

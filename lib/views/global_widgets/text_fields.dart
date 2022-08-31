@@ -1,3 +1,4 @@
+import 'package:dropdown_textfield/dropdown_textfield.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:test_em/constants.dart';
@@ -41,6 +42,54 @@ class SearchTextField extends StatelessWidget {
         ),
         style: searchTextStyle,
       ),
+    );
+  }
+}
+
+/// текстовое поле фильтрации
+class FilterTextField extends StatefulWidget {
+  List <String> itemsList;
+  FilterTextField({Key? key, required this.itemsList}) : super(key: key);
+
+  @override
+  _FilterTextFieldState createState() => _FilterTextFieldState(itemsList);
+}
+
+class _FilterTextFieldState extends State<FilterTextField> {
+  List <String> itemsList;
+  _FilterTextFieldState(this.itemsList);
+
+
+  @override
+  Widget build(BuildContext context) {
+    String? selectedItem = itemsList[0];
+    return Container(
+      height: 37.0,
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: secondaryTextColor,
+          width: 1.0
+        ),
+        borderRadius: BorderRadius.circular(5.0)
+      ),
+        child: DropdownButtonHideUnderline(
+          child: ButtonTheme(
+            alignedDropdown: true,
+            child: DropdownButton<String> (
+              icon: Icon(Icons.keyboard_arrow_down),
+              isExpanded: true,
+              items: itemsList
+                  .map((item) => DropdownMenuItem<String>(
+                    value: item,
+                    child: Material(child: Text(item, style: filterTextStyle,))))
+                  .toList(),
+              onChanged: (item) => setState(() {
+                selectedItem = item;
+              }),
+            value: selectedItem,
+      ),
+          ),
+        ),
     );
   }
 }

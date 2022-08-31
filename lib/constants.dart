@@ -7,6 +7,14 @@ String viewAllText = 'view all';
 String searchHintText = 'Search';
 String buyButton = 'Buy now!';
 
+/// текст с окна фильтрации
+String doneButton = 'Done';
+String filterHeadingText = 'Filter options';
+String brandText = 'Brand';
+String priceText = 'Price';
+String sizeText = 'Size';
+String applyFilterButton = 'Done';
+
 /// категории товаров
 String categoryPhonesText = 'Phones';
 String categoryComputerText = 'Computer';
@@ -20,4 +28,5 @@ String detailsTabText = 'Details';
 String featuresTabText = 'Features';
 String selectionText = 'Select color and capacity';
 String addToCartText = 'Add to Cart';
+
 

@@ -234,3 +234,27 @@ class _AddToCartButtonState extends State<AddToCartButton> {
     );
   }
 }
+
+/// кнопка применения фильтров Filter Options
+class FilterApplyButton extends StatelessWidget {
+  const FilterApplyButton({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 37.0,
+      width: 86.0,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10.0),
+        color: orangeAccentColor,
+      ),
+      child: TextButton(
+        onPressed: () {  },
+        child: Text(
+          applyFilterButton,
+          style: applyFilterButtonTextStyle,
+        ),
+      ),
+    );
+  }
+}

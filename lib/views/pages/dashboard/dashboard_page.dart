@@ -5,6 +5,9 @@ import 'package:test_em/controllers/dashboard_controller.dart';
 import 'package:test_em/views/pages/main_screen/main_screen_page.dart';
 
 import '../../global_widgets/bottom_navigation_bar.dart';
+import '../cart/cart_page.dart';
+import '../favorites/favorites_page.dart';
+import '../profile/profile_page.dart';
 
 class DashboardPage extends StatelessWidget {
 
@@ -23,9 +26,9 @@ class DashboardPage extends StatelessWidget {
               index: controller.selectedIndex,
               children: [
                 MainScreenPage(),
-                // CartPage(),
-                // FavoritesPage(),
-                // ProfilePage(),
+                CartPage(),
+                FavoritesPage(),
+                ProfilePage(),
               ],
             ),
           ),

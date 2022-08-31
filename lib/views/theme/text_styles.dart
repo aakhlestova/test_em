@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:test_em/views/theme/colors.dart';
 
-/// стиль текста местоположения
-const locationTextStyle = TextStyle(
+/// стиль текста в appBar
+const appBarTextStyle = TextStyle(
   fontFamily: 'Mark Pro',
   fontSize: 15.0,
   fontWeight: FontWeight.w500,
@@ -53,6 +53,14 @@ const headingThirdTextStyle = TextStyle(
   letterSpacing: -0.33,
 );
 
+const cartHeadingThirdTextStyle = TextStyle(
+  fontFamily: 'Mark Pro',
+  fontSize: 35.0,
+  fontWeight: FontWeight.w700,
+  color: primaryTextColor,
+  letterSpacing: -0.33,
+);
+
 /// стиль акцентного текста
 const accentTextStyle = TextStyle(
   fontFamily: 'Mark Pro',
@@ -93,6 +101,14 @@ const filterTextStyle = TextStyle(
   fontSize: 18.0,
   fontWeight: FontWeight.w400,
   color: primaryTextColor,
+  letterSpacing: -0.33,
+);
+
+const applyFilterButtonTextStyle = TextStyle(
+  fontFamily: 'Mark Pro',
+  fontSize: 18.0,
+  fontWeight: FontWeight.w500,
+  color: whiteTextColor,
   letterSpacing: -0.33,
 );
 
