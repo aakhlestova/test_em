@@ -223,3 +223,46 @@ const unselectedCapacityButtonTextStyle = TextStyle(
   color: unselectedCapacityTextColor,
   letterSpacing: -0.33,
 );
+
+/// стили текста на странице Cart
+const myCartTextStyle = TextStyle(
+  fontFamily: 'Mark Pro',
+  fontSize: 35.0,
+  fontWeight: FontWeight.w700,
+  color: primaryTextColor,
+);
+
+const cartProductTitleTextStyle = TextStyle(
+  fontFamily: 'Mark Pro',
+  fontSize: 20.0,
+  fontWeight: FontWeight.w500,
+  color: whiteTextColor,
+);
+
+const cartProductPriceTextStyle = TextStyle(
+  fontFamily: 'Mark Pro',
+  fontSize: 20.0,
+  fontWeight: FontWeight.w500,
+  color: orangeAccentColor,
+);
+
+const cartTextStyle = TextStyle(
+  fontFamily: 'Mark Pro',
+  fontSize: 15.0,
+  fontWeight: FontWeight.w400,
+  color: whiteTextColor,
+);
+
+const cartTotalTextStyle = TextStyle(
+  fontFamily: 'Mark Pro',
+  fontSize: 15.0,
+  fontWeight: FontWeight.w700,
+  color: whiteTextColor,
+);
+
+const checkoutButtonTextStyle = TextStyle(
+  fontFamily: 'Mark Pro',
+  fontSize: 20.0,
+  fontWeight: FontWeight.w700,
+  color: whiteTextColor,
+);

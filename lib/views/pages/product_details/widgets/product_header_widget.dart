@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:test_em/models/cart_model.dart';
 import 'package:test_em/views/theme/colors.dart';
 import 'package:test_em/views/theme/text_styles.dart';
 
 import '../../../../constants.dart';
+import '../../cart/cart_page.dart';
 
 /// виджет с хедером, кнопкой Назад и кнопкой Корзина (страница Product Details)
-class HeaderWidget extends StatefulWidget {
-  const HeaderWidget({Key? key}) : super(key: key);
+class ProductHeaderWidget extends StatefulWidget {
+  const ProductHeaderWidget({Key? key}) : super(key: key);
 
   @override
-  _HeaderWidgetState createState() => _HeaderWidgetState();
+  _ProductHeaderWidgetState createState() => _ProductHeaderWidgetState();
 }
 
-class _HeaderWidgetState extends State<HeaderWidget> {
+class _ProductHeaderWidgetState extends State<ProductHeaderWidget> {
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -46,7 +48,7 @@ class _HeaderWidgetState extends State<HeaderWidget> {
               color: orangeAccentColor,
             ),
             child: IconButton(
-              onPressed: () {},
+              onPressed: () => Get.to(CartPage()),
               icon: Center(child: Image.asset('assets/images/productDetails/cart.png', height: 14.0,))),
           ),
         ),

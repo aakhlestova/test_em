@@ -45,6 +45,7 @@ flutter:
     - assets/images/home/categories/
     - assets/images/productDetails/
     - assets/images/splash/
+    - assets/images/cart/
 
   fonts:
     - family: Mark Pro

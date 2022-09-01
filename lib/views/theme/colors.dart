@@ -22,7 +22,8 @@ const Color favoriteButtonColor = Color(0x26000000);
 const Color productPhotoShadowColor = Color(0x26374E88);
 const Color productInfoShadowColor = Color(0x1A4C5F8F);
 
-
+const Color amountCounterColor = Color(0xFF282843);
+const Color whiteBorderColor = Color(0x40FFFFFF);
 
 /// функция перевода строки в цвет
 Color hexToColor(String hexString, {String alphaChannel = 'FF'}) {

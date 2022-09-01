@@ -29,4 +29,9 @@ String featuresTabText = 'Features';
 String selectionText = 'Select color and capacity';
 String addToCartText = 'Add to Cart';
 
-
+/// текст со страницы Cart
+String myCartText = 'My Cart';
+String addressText = 'Add address';
+String totalPriceText = 'Total';
+String deliveryText = 'Delivery';
+String checkoutButton = 'Checkout';

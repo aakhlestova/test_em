@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:test_em/controllers/product_details_controller.dart';
-import 'package:test_em/views/pages/product_details/widgets/header_widget.dart';
+import 'package:test_em/views/pages/product_details/widgets/product_header_widget.dart';
 import 'package:test_em/views/pages/product_details/widgets/product_info_widget.dart';
 
 import '../../global_widgets/carousel.dart';
@@ -33,7 +33,7 @@ class ProductDetailsPage extends StatelessWidget {
                         children: [
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 37.0),
-                            child: HeaderWidget(),
+                            child: ProductHeaderWidget(),
                           ),
                           ProductPhotoCarousel(productDetailsDataList: productDetailsController.productDetails.value,),
                           ProductInfoWidget(productDetailsDataList: productDetailsController.productDetails.value,),

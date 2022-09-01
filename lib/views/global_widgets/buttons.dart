@@ -258,3 +258,29 @@ class FilterApplyButton extends StatelessWidget {
     );
   }
 }
+
+class CheckoutButton extends StatelessWidget {
+  const CheckoutButton({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 54.0,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10.0),
+        color: orangeAccentColor,
+      ),
+      child: GestureDetector(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 40.0),
+          child: Center(
+            child: Text(
+              checkoutButton,
+              style: checkoutButtonTextStyle,
+            ),
+          ),
+          ),
+        ),
+    );
+  }
+}

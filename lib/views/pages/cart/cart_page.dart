@@ -1,10 +1,58 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:test_em/constants.dart';
+import 'package:test_em/views/pages/cart/widgets/cart_header_widget.dart';
+import 'package:test_em/views/pages/cart/widgets/cart_total_widget.dart';
+import 'package:test_em/views/pages/cart/widgets/cart_widget.dart';
+import 'package:test_em/views/theme/text_styles.dart';
+import '../../../controllers/cart_controller.dart';
+import '../../theme/colors.dart';
 
 class CartPage extends StatelessWidget {
-  const CartPage({Key? key}) : super(key: key);
+
+  final CartController cartController = Get.put(
+      CartController());
+  CartPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SafeArea(
+      child: Scaffold(
+        extendBody: true,
+        backgroundColor: screenBackgroundColor,
+        body: Column(
+          children: [
+            Expanded(
+              child: Obx((){
+                if (cartController.isLoading.value){
+                  return Center(child: CircularProgressIndicator(),);
+                } else {
+                  return ListView(
+                    clipBehavior: Clip.none,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 40.0,vertical: 37.0),
+                        child: CartHeaderWidget(),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 13.0, left: 40.0),
+                        child: Text(
+                          myCartText,
+                          style: myCartTextStyle,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 50.0),
+                        child: CartWidget(cartDataList: cartController.cart.value,),
+                      ),
+                    ],
+                  );
+                }
+              }
+              ))
+          ],
+        ),
+      )
+    );
   }
 }
