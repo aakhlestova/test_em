@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:test_em/views/pages/dashboard/dashboard_page.dart';
+
+import 'package:test_em/src/presentation/pages/dashboard/dashboard_page.dart';
 
 void main() {
   runApp(const Application());
