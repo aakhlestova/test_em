@@ -1,6 +1,9 @@
 # test_em
 Flutter project for Effective Mobile test task.
 
+Video presentation of the project:
+https://disk.yandex.ru/i/6QFuufmaeyWHPg
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
