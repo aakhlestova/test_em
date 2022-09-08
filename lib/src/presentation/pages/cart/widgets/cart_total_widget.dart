@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:test_em/src/constants.dart';
 
 import '../../../../data/models/cart_model.dart';
+import '../../../../domain/controllers/cart_controller.dart';
 import '../../../theme/colors.dart';
 import '../../../theme/text_styles.dart';
 import 'cart_amount_counter_widget.dart';
@@ -13,12 +15,15 @@ class CartTotalWidget extends StatefulWidget {
   const CartTotalWidget({Key? key, required this.cartDataList}) : super(key: key);
 
   @override
-  _CartTotalWidgetState createState() => _CartTotalWidgetState(cartDataList);
+  _CartTotalWidgetState createState() => _CartTotalWidgetState();
 }
 
 class _CartTotalWidgetState extends State<CartTotalWidget> {
-  final Cart cartDataList;
-  _CartTotalWidgetState(this.cartDataList);
+
+  final CartController cartController = Get.find();
+  final List<int> productAmountList = Get.find();
+
+  final ValueNotifier<String> _notify = ValueNotifier<String>('0');
 
   int totalPrice = 0;
 
@@ -26,18 +31,26 @@ class _CartTotalWidgetState extends State<CartTotalWidget> {
   /// при изменении количества товаров, общая сумма totalPrice пересчитывается,
   /// но текстовый виджет, который ее отображает, не обновляется
   ///
-  void _getTotalPrice(){
+  void _getTotalPrice(Cart cartDataList){
     setState(() {
       for (int index = 0; index < cartDataList.basket!.length; index++) {
-        totalPrice = cartDataList.basket![index].price! * ProductAmount.currentAmountList[index] + totalPrice;
+        int length = cartDataList.basket!.length;
+        print(length);
+        print('SUM + $productAmountList');
+        totalPrice = cartDataList.basket![index].price! * productAmountList[index] + totalPrice;
+        _notify.value = totalPrice.toString();
+
       }
     });
+
   }
 
   @override
   Widget build(BuildContext context) {
+    totalPrice = 0;
+    Cart cartDataList = cartController.cart.value;
+    _getTotalPrice(cartDataList);
 
-    _getTotalPrice();
     return Container(
       width: MediaQuery.of(context).size.width,
       height: 91.0,
@@ -76,9 +89,14 @@ class _CartTotalWidgetState extends State<CartTotalWidget> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    '\$' + totalPrice.toString() + ' us',
-                    style: cartTotalTextStyle,
+                  ValueListenableBuilder(
+                    valueListenable: _notify,
+                    builder: ( context,  value,  child){
+                      return Text(
+                        '\$$value us',
+                        style: cartTotalTextStyle,
+                      );
+                    }
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 12.0),

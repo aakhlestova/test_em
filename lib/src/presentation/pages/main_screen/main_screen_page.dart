@@ -85,11 +85,11 @@ class MainScreenPage extends StatelessWidget {
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(top: 24.0),
-                                child: HomeStoreWidget(homeStoreDataList: mainScreenController.mainScreen.value.homeStore!,),
+                                child: HomeStoreWidget(),
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(top: 11.0),
-                                child: BestSellerWidget(bestSellerDataList: mainScreenController.mainScreen.value.bestSeller!,),
+                                child: BestSellerWidget(),
                               ),
                             ],
                           ),
@@ -106,7 +106,7 @@ class MainScreenPage extends StatelessWidget {
     );
   }
 
-  /// функция вызова окна филтрации
+  /// функция вызова окна фильтрации
   void showFilterPopup(context) {
     showCupertinoModalPopup(
         context: context,
@@ -126,7 +126,7 @@ class MainScreenPage extends StatelessWidget {
                     .copyWith()
                     .size
                     .height * 0.55,
-                child: FilterPopupWidget(bestSellerDataList: mainScreenController.mainScreen.value.bestSeller!,)
+                child: FilterPopupWidget()
             ),
           );
         }

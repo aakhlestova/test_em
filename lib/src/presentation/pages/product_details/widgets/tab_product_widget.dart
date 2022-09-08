@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:test_em/src/constants.dart';
 
 import '../../../../data/models/product_details_model.dart';
+import '../../../../domain/controllers/product_details_controller.dart';
 import '../../../global_widgets/buttons.dart';
 import '../../../theme/colors.dart';
 import '../../../theme/text_styles.dart';
@@ -10,19 +12,18 @@ import 'capacity_selector_widget.dart';
 import 'color_selector_widget.dart';
 
 class TabProductWidget extends StatefulWidget {
-  final ProductDetails productDetailsDataList;
-  const TabProductWidget({Key? key, required this.productDetailsDataList}) : super(key: key);
+  const TabProductWidget({Key? key, }) : super(key: key);
 
   @override
-  _TabProductWidgetState createState() => _TabProductWidgetState(productDetailsDataList);
+  _TabProductWidgetState createState() => _TabProductWidgetState();
 }
 
 class _TabProductWidgetState extends State<TabProductWidget> {
-  final ProductDetails productDetailsDataList;
-  _TabProductWidgetState(this.productDetailsDataList);
+  final ProductDetailsController productDetailsController = Get.find();
 
   @override
   Widget build(BuildContext context) {
+    ProductDetails productDetailsDataList = productDetailsController.productDetails.value;
     return DefaultTabController(
       length: 3,
       child: Column(
@@ -90,56 +91,27 @@ Widget _extraInfo( ProductDetails productDetailsDataList){
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Column(
-          children: [
-            Image.asset('assets/images/productDetails/cpu.png', height: 28.0,),
-            Padding(
-              padding: const EdgeInsets.only(top: 5.0),
-              child: Text(
-                productDetailsDataList.cpu.toString(),
-                style: extraInfoTextStyle,
-              ),
-            )
-          ],
-        ),
-        Column(
-          children: [
-            Image.asset('assets/images/productDetails/camera.png', height: 22.0,),
-            Padding(
-              padding: const EdgeInsets.only(top: 5.0),
-              child: Text(
-                productDetailsDataList.camera.toString(),
-                style: extraInfoTextStyle,
-              ),
-            )
-          ],
-        ),
-        Column(
-          children: [
-            Image.asset('assets/images/productDetails/sd.png', height: 21.0,),
-            Padding(
-              padding: const EdgeInsets.only(top: 5.0),
-              child: Text(
-                productDetailsDataList.ssd.toString(),
-                style: extraInfoTextStyle,
-              ),
-            )
-          ],
-        ),
-        Column(
-          children: [
-            Image.asset('assets/images/productDetails/ssd.png', height: 22.0,),
-            Padding(
-              padding: const EdgeInsets.only(top: 5.0),
-              child: Text(
-                productDetailsDataList.sd.toString(),
-                style: extraInfoTextStyle,
-              ),
-            )
-          ],
-        ),
+        _getItemExtraInfo(productDetailsDataList.cpu.toString(), 'assets/images/productDetails/cpu.png', 28.0,),
+        _getItemExtraInfo(productDetailsDataList.camera.toString(), 'assets/images/productDetails/camera.png', 22.0,),
+        _getItemExtraInfo(productDetailsDataList.ssd.toString(), 'assets/images/productDetails/ssd.png', 21.0,),
+        _getItemExtraInfo(productDetailsDataList.sd.toString(), 'assets/images/productDetails/sd.png', 22.0,),
       ],
     ),
+  );
+}
+
+Widget _getItemExtraInfo(String text, String image, double height){
+  return Column(
+    children: [
+      Image.asset(image, height: height,),
+      Padding(
+        padding: const EdgeInsets.only(top: 5.0),
+        child: Text(
+          text,
+          style: extraInfoTextStyle,
+        ),
+      )
+    ],
   );
 }
 

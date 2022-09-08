@@ -1,22 +1,26 @@
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
 import '../../../../data/models/cart_model.dart';
+import '../../../../domain/controllers/cart_controller.dart';
 import '../../../global_widgets/buttons.dart';
 import '../../../theme/colors.dart';
 import 'cart_product_widget.dart';
 import 'cart_total_widget.dart';
 
+
 /// виджет корзины
 class CartWidget extends StatefulWidget {
-  final Cart cartDataList;
-  const CartWidget({Key? key, required this.cartDataList,}) : super(key: key);
+  const CartWidget({Key? key, }) : super(key: key);
 
   @override
-  _CartWidgetState createState() => _CartWidgetState(cartDataList);
+  _CartWidgetState createState() => _CartWidgetState();
 }
 
 class _CartWidgetState extends State<CartWidget> {
-  final Cart cartDataList;
-  _CartWidgetState(this.cartDataList);
+
+  final CartController cartController = Get.find();
+
+  final List<int> currentAmountList = [1, 1];
 
   void refresh(){
     setState(() {
@@ -26,7 +30,10 @@ class _CartWidgetState extends State<CartWidget> {
 
   @override
   Widget build(BuildContext context) {
+    final List<int> productAmountList = Get.put(currentAmountList);
+    Cart cartDataList = cartController.cart.value;
     refresh();
+
     return Container(
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(

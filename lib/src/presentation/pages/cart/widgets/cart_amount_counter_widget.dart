@@ -1,12 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../../theme/colors.dart';
 import '../../../theme/text_styles.dart';
 
 
-class ProductAmount{
-  static List<int> currentAmountList = [1, 1];
-}
 
 class CartAmountCounterWidget extends StatefulWidget {
   final int index;
@@ -23,26 +21,29 @@ class _CartAmountCounterWidgetState extends State<CartAmountCounterWidget> {
   final int index;
   _CartAmountCounterWidgetState(this.index);
 
+  final List<int> productAmountList = Get.find();
 
   int currentAmount = 1;
 
   void _addAmount(){
     setState(() {
       currentAmount++;
-      ProductAmount.currentAmountList[index] = currentAmount;
+      productAmountList[index] = currentAmount;
+
     });
   }
 
   void _subtractAmount(){
     setState(() {
       currentAmount--;
-      ProductAmount.currentAmountList[index] = currentAmount;
+      productAmountList[index] = currentAmount;
     });
   }
 
 
   @override
   Widget build(BuildContext context) {
+
     return Container(
       height: 68.0,
       width: 26.0,
@@ -60,7 +61,7 @@ class _CartAmountCounterWidgetState extends State<CartAmountCounterWidget> {
             ),
           ),
           Text(
-            ProductAmount.currentAmountList[index].toString(),
+            productAmountList[index].toString(),
             style: cartProductTitleTextStyle,
           ),
           SizedBox(

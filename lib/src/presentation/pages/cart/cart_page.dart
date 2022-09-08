@@ -42,7 +42,7 @@ class CartPage extends StatelessWidget {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(top: 50.0),
-                        child: CartWidget(cartDataList: cartController.cart.value,),
+                        child: CartWidget(),
                       ),
                     ],
                   );

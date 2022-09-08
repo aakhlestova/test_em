@@ -1,27 +1,30 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:test_em/src/constants.dart';
-
 import '../../../../data/models/main_screen_model.dart';
+import '../../../../domain/controllers/main_screen_controller.dart';
 import '../../../global_widgets/product_card_widget.dart';
 import '../../../theme/text_styles.dart';
 
 
 /// виджет с товарами бестселлерами (главная страница)
 class BestSellerWidget extends StatefulWidget {
-  final List<BestSeller> bestSellerDataList;
-  const BestSellerWidget({Key? key, required this.bestSellerDataList}) : super(key: key);
+  const BestSellerWidget({Key? key,}) : super(key: key);
 
   @override
-  _BestSellerWidgetState createState() => _BestSellerWidgetState(bestSellerDataList);
+  _BestSellerWidgetState createState() => _BestSellerWidgetState();
 }
 
 class _BestSellerWidgetState extends State<BestSellerWidget> {
-  final List<BestSeller> bestSellerDataList;
-  _BestSellerWidgetState(this.bestSellerDataList);
+
+  final MainScreenController mainScreenController = Get.find();
 
   @override
   Widget build(BuildContext context) {
+
+    List<BestSeller> bestSellerDataList = mainScreenController.mainScreen.value.bestSeller!;
+
     return Column(
       children: [
         Row(
@@ -41,10 +44,10 @@ class _BestSellerWidgetState extends State<BestSellerWidget> {
         ),
         GridView.builder(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              mainAxisSpacing: 12.0,
-              crossAxisSpacing: 14.0,
-              childAspectRatio: 1/1.5
+                crossAxisCount: 2,
+                mainAxisSpacing: 12.0,
+                crossAxisSpacing: 14.0,
+                childAspectRatio: 1/1.5
             ),
             physics: NeverScrollableScrollPhysics(),
             itemCount: bestSellerDataList.length,

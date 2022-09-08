@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../../data/models/main_screen_model.dart';
 import '../../data/models/product_details_model.dart';
+import '../../domain/controllers/main_screen_controller.dart';
+import '../../domain/controllers/product_details_controller.dart';
 import '../theme/colors.dart';
 import '../theme/text_styles.dart';
 import 'buttons.dart';
@@ -9,19 +12,19 @@ import 'buttons.dart';
 
 /// карусель с товарами категории Hor Sales
 class HotSalesCarouselWidget extends StatefulWidget {
-  final List<HomeStore> homeStoreDataList;
-  const HotSalesCarouselWidget({Key? key, required this.homeStoreDataList}) : super(key: key);
+  const HotSalesCarouselWidget({Key? key, }) : super(key: key);
 
   @override
-  _HotSalesCarouselWidgetState createState() => _HotSalesCarouselWidgetState(homeStoreDataList: homeStoreDataList);
+  _HotSalesCarouselWidgetState createState() => _HotSalesCarouselWidgetState();
 }
 
 class _HotSalesCarouselWidgetState extends State<HotSalesCarouselWidget> {
-  final List<HomeStore> homeStoreDataList;
-  _HotSalesCarouselWidgetState({required this.homeStoreDataList});
+
+  final MainScreenController mainScreenController = Get.find();
 
   @override
   Widget build(BuildContext context) {
+    List<HomeStore> homeStoreDataList = mainScreenController.mainScreen.value.homeStore!;
     return SizedBox(
       height: 182.0,
       child: PageView.builder(
@@ -99,17 +102,15 @@ Widget hotSalesCarouselPage (String title, String subtitle, String? isNew, bool?
 /// карусель фото со страницы товара (Product Details)
 class ProductPhotoCarousel extends StatefulWidget {
 
-  final ProductDetails productDetailsDataList;
-  const ProductPhotoCarousel({Key? key, required this.productDetailsDataList}) : super(key: key);
+  const ProductPhotoCarousel({Key? key, }) : super(key: key);
 
   @override
-  _ProductPhotoCarouselState createState() => _ProductPhotoCarouselState(productDetailsDataList,);
+  _ProductPhotoCarouselState createState() => _ProductPhotoCarouselState();
 }
 
 class _ProductPhotoCarouselState extends State<ProductPhotoCarousel> {
-  final ProductDetails productDetailsDataList;
-  _ProductPhotoCarouselState(this.productDetailsDataList);
 
+  final ProductDetailsController productDetailsController = Get.find();
   late PageController _pageController;
   List<String> images = [];
 
@@ -117,6 +118,7 @@ class _ProductPhotoCarouselState extends State<ProductPhotoCarousel> {
 
   @override
   void initState() {
+    ProductDetails productDetailsDataList = productDetailsController.productDetails.value;
     super.initState();
     _pageController = PageController(initialPage: 0, viewportFraction: 0.75);
     _getImageList(productDetailsDataList, images);
@@ -128,7 +130,6 @@ class _ProductPhotoCarouselState extends State<ProductPhotoCarousel> {
       images.add(productDetailsDataList.images![count].toString());
     }
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -144,7 +145,6 @@ class _ProductPhotoCarouselState extends State<ProductPhotoCarousel> {
          });
        },
        itemBuilder: (BuildContext context, int index) {
-         //return productPhotoCarouselPage(images[index]);
          final image = images[index];
          var _scale = _currentIndex == index ? 1.0 : 0.8;
          return TweenAnimationBuilder(

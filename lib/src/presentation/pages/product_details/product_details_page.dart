@@ -34,8 +34,8 @@ class ProductDetailsPage extends StatelessWidget {
                             padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 37.0),
                             child: ProductHeaderWidget(),
                           ),
-                          ProductPhotoCarousel(productDetailsDataList: productDetailsController.productDetails.value,),
-                          ProductInfoWidget(productDetailsDataList: productDetailsController.productDetails.value,),
+                          ProductPhotoCarousel(),
+                          ProductInfoWidget(),
                         ],
                       );
                     }

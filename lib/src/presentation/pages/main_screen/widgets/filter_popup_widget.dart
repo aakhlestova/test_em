@@ -3,26 +3,28 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:test_em/src/constants.dart';
 import '../../../../data/models/main_screen_model.dart';
+import '../../../../domain/controllers/main_screen_controller.dart';
 import '../../../global_widgets/buttons.dart';
 import '../../../global_widgets/text_fields.dart';
 import '../../../theme/colors.dart';
 import '../../../theme/text_styles.dart';
 
 class FilterPopupWidget extends StatefulWidget {
-  final List<BestSeller> bestSellerDataList;
-  const FilterPopupWidget({Key? key, required this.bestSellerDataList}) : super(key: key);
+  const FilterPopupWidget({Key? key, }) : super(key: key);
 
   @override
-  _FilterPopupWidgetState createState() => _FilterPopupWidgetState(bestSellerDataList);
+  _FilterPopupWidgetState createState() => _FilterPopupWidgetState();
 }
 
 class _FilterPopupWidgetState extends State<FilterPopupWidget> {
 
-  final List<BestSeller> bestSellerDataList;
-  _FilterPopupWidgetState(this.bestSellerDataList);
+  final MainScreenController mainScreenController = Get.find();
 
   @override
   Widget build(BuildContext context) {
+
+    List<BestSeller> bestSellerDataList = mainScreenController.mainScreen.value.bestSeller!;
+
     return Scaffold(
       backgroundColor: widgetBackgroundColor,
       body: Padding(
@@ -73,11 +75,9 @@ Widget _filterHeader(){
 }
 
 Widget _filterBody(){
-
   List <String> brandsList = ['Samsung', 'Iphone', 'Xiaomi', 'Motorola'];
   List <String> pricesList = ['0 - 10000\$'];
   List <String> sizesList = ['4.5 to 5.5 inches'];
-
 
   return
         Column(

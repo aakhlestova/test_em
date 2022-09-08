@@ -16,7 +16,6 @@ class TabCategoryButton extends StatelessWidget {
 
   const TabCategoryButton({Key? key, required this.title, required this.icon, required this.selectedCategory, required this.categoryNumber, required this.icon_active, required this.onPressed}) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
     return Padding(
